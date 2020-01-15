@@ -12,7 +12,7 @@ namespace ConsoleApplication
         {
             //Requirement 2: Store two variables
 
-            Console.Write("Please enter your full name: ");
+            Console.Write("Please enter your full name person:  ");
             string fullName = Console.ReadLine();
 
             Console.Write("Please enter your location ");
