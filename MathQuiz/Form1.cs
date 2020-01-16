@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MathQuiz
 {
-    public partial class Form1 : Form
+    public partial class MathQuiz : Form
     {
 
         Random randomizer = new Random();
@@ -19,6 +19,23 @@ namespace MathQuiz
         // for the addition problem
         int addend1;
         int addend2;
+
+        // These integer variables store the numbers 
+        // for the subtraction problem. 
+        int minuend;
+        int subtrahend;
+
+
+        // These integer variables store the numbers 
+        // for the multiplication problem. 
+        int multiplicand;
+        int multiplier;
+
+        // These integer variables store the numbers 
+        // for the division problem. 
+        int dividend;
+        int divisor;
+
 
         //This interger variable keeps track of
         //remaining time
@@ -51,6 +68,30 @@ namespace MathQuiz
             //adding any values to it.
             sum.Value = 0;
 
+            // Fill in the subtraction problem.
+            minuend = randomizer.Next(1, 101);
+            subtrahend = randomizer.Next(1, minuend);
+            minusLeftLabel.Text = minuend.ToString();
+            minusRightLabel.Text = subtrahend.ToString();
+            difference.Value = 0;
+
+            // Fill in the multiplication problem.
+            multiplicand = randomizer.Next(2, 11);
+            multiplier = randomizer.Next(2, 11);
+            timesLeftLabel.Text = multiplicand.ToString();
+            timesRightLabel.Text = multiplier.ToString();
+            product.Value = 0;
+
+            // Fill in the division problem.
+            divisor = randomizer.Next(2, 11);
+            int temporaryQuotient = randomizer.Next(2, 11);
+            dividend = divisor * temporaryQuotient;
+            dividedLeftLabel.Text = dividend.ToString();
+            dividedRightLabel.Text = divisor.ToString();
+            quotient.Value = 0;
+
+
+
             //start the timer
             timeLeft = 30;
             timeLabel.Text = "30 seconds";
@@ -59,7 +100,7 @@ namespace MathQuiz
         }
 
 
-        public Form1()
+        public MathQuiz()
         {
             InitializeComponent();
         }
@@ -87,6 +128,11 @@ namespace MathQuiz
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            if (timeLeft <= 6)
+            {
+                timeLabel.BackColor = Color.Red;
+            }
             if (timeLeft > 0)
             {
                 //Display the new time left
@@ -111,6 +157,9 @@ namespace MathQuiz
                 timeLabel.Text = "Time's Up!";
                 MessageBox.Show("You didn't finish in time. ", "Sorry");
                 sum.Value = addend1 + addend2;
+                difference.Value = minuend - subtrahend;
+                product.Value = multiplicand * multiplier;
+                quotient.Value = dividend / divisor;
                 startButton.Enabled = true;
 
             }
@@ -122,10 +171,32 @@ namespace MathQuiz
         /// <returns>True if the answer's correct, false otherwise.</returns>
         private bool CheckTheAnswer()
         {
-            if (addend1 + addend2 == sum.Value)
+            if ((addend1 + addend2 == sum.Value)
+                && (minuend - subtrahend == difference.Value)
+                && (multiplicand * multiplier == product.Value)
+        && (dividend / divisor == quotient.Value))
+
                 return true;
             else
                 return false;
         }
+
+        private void sum_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown answerBox = sender as NumericUpDown;
+
+            if (answerBox != null)
+            {
+                // Select the whole answer in the NumericUpDown control.
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
+            }
+        }
+
     }
 }
