@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
 namespace MegaDesk
-{ 
-	public enum DayLengths
+{
+	public enum RushOrderType
 	{
 		[Description("14-Day (Normal)")]
 		FourteenDay = 0,

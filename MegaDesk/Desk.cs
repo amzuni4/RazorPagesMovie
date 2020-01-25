@@ -11,10 +11,10 @@ namespace MegaDesk
 		public int depth { get; set; }
 		public int width { get; set; }
 		public int numberOfDrawers { get; set; }
-		public DeskMaterialTypes SurfaceMaterial { get; set; }
+		public DesktopMaterial SurfaceMaterial { get; set; }
 	}
 
-	public enum DeskMaterialTypes
+	public enum DesktopMaterial
 	{
 		Oak = 0,
 		Laminate = 1,
@@ -23,4 +23,3 @@ namespace MegaDesk
 		Veneer = 4
 	}
 }
-

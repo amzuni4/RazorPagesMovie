@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace MegaDesk
 {
-   public class DeskQuote
-    {
+	public class DeskQuote
+	{
 		public string CustomerName { get; set; }
-		public DayLengths DayLengths { get; set; }
+		public RushOrderType RushOrderType { get; set; }
 		public Desk Desk { get; set; }
 		public DateTime Date { get; set; }
 		public decimal QuotePrice { get; set; }
 
+		private QuoteFileManager _quoteFileManager = new QuoteFileManager();
 		private const decimal BASE_DESK_PRICE = 200.00M;
 		private const decimal SURFACE_AREA_RATE = 1;
 		private const decimal DRAWER_RATE = 50.00M;
@@ -22,8 +22,8 @@ namespace MegaDesk
 		public decimal GetQuote()
 		{
 			decimal surfaceArea = Desk.depth * Desk.width;
-
-			return GetDeskPrice(surfaceArea) + GetRushCost(surfaceArea);
+			var test = GetRushOrderCost(surfaceArea);
+			return GetDeskPrice(surfaceArea) + GetRushOrderCost(surfaceArea);
 		}
 
 		private decimal GetDeskPrice(decimal surfaceArea)
@@ -42,18 +42,18 @@ namespace MegaDesk
 			{
 				switch (Desk.SurfaceMaterial)
 				{
-					case DeskMaterialTypes.Oak:
+					case DesktopMaterial.Oak:
 						return 200.00M;
-					case DeskMaterialTypes.Laminate:
+					case DesktopMaterial.Laminate:
 						return 100.00M;
-					case DeskMaterialTypes.Pine:
+					case DesktopMaterial.Pine:
 						return 50.00M;
-					case DeskMaterialTypes.Rosewood:
+					case DesktopMaterial.Rosewood:
 						return 300.00M;
-					case DeskMaterialTypes.Veneer:
+					case DesktopMaterial.Veneer:
 						return 125.00M;
 					default:
-						throw new Exception("You need to select the type of material for your desk");
+						throw new Exception("No material selected.");
 				}
 			}
 			catch (Exception e)
@@ -62,46 +62,48 @@ namespace MegaDesk
 			}
 		}
 
-		private decimal GetRushCost(decimal surfaceArea)
+		private decimal GetRushOrderCost(decimal surfaceArea)
 		{
+			decimal[,] rushOrderPrices = _quoteFileManager.GetRushOrderPrices();
+
 			if (surfaceArea < 1000)
 			{
-				switch (DayLengths)
+				switch (RushOrderType)
 				{
-					case DayLengths.ThreeDay:
-						return 60.00M;
-					case DayLengths.FiveDay:
-						return 40.00M;
-					case DayLengths.SevenDay:
-						return 30.00M;
+					case RushOrderType.ThreeDay:
+						return rushOrderPrices[0, 0];
+					case RushOrderType.FiveDay:
+						return rushOrderPrices[0, 1];
+					case RushOrderType.SevenDay:
+						return rushOrderPrices[0, 2];
 					default:
 						return 0;
 				}
 			}
 			else if (surfaceArea >= 1000 && surfaceArea <= 2000)
 			{
-				switch (DayLengths)
+				switch (RushOrderType)
 				{
-					case DayLengths.ThreeDay:
-						return 70.00M;
-					case DayLengths.FiveDay:
-						return 50.00M;
-					case DayLengths.SevenDay:
-						return 35.00M;
+					case RushOrderType.ThreeDay:
+						return rushOrderPrices[1, 0];
+					case RushOrderType.FiveDay:
+						return rushOrderPrices[1, 1];
+					case RushOrderType.SevenDay:
+						return rushOrderPrices[1, 2];
 					default:
 						return 0;
 				}
 			}
 			else
 			{
-				switch (DayLengths)
+				switch (RushOrderType)
 				{
-					case DayLengths.ThreeDay:
-						return 80.00M;
-					case DayLengths.FiveDay:
-						return 60.00M;
-					case DayLengths.SevenDay:
-						return 40.00M;
+					case RushOrderType.ThreeDay:
+						return rushOrderPrices[2, 0];
+					case RushOrderType.FiveDay:
+						return rushOrderPrices[2, 1];
+					case RushOrderType.SevenDay:
+						return rushOrderPrices[2, 2];
 					default:
 						return 0;
 				}

@@ -41,12 +41,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.rushOrderSelect = new System.Windows.Forms.ComboBox();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.getQuoteButton = new System.Windows.Forms.Button();
+            this.saveQuoteButton = new System.Windows.Forms.Button();
             this.nameRequiredErrorMessage = new System.Windows.Forms.Label();
-            this.wLimit = new System.Windows.Forms.Label();
-            this.dLimit = new System.Windows.Forms.Label();
-            this.drLimit = new System.Windows.Forms.Label();
-            this.AddQuote_Form = new System.Windows.Forms.Button();
+            this.BackToMain = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.widthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberOfDrawersUpDown)).BeginInit();
@@ -55,7 +52,7 @@
             // widthUpDown
             // 
             this.widthUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.widthUpDown.Location = new System.Drawing.Point(298, 82);
+            this.widthUpDown.Location = new System.Drawing.Point(417, 78);
             this.widthUpDown.Maximum = new decimal(new int[] {
             96,
             0,
@@ -67,14 +64,13 @@
             0,
             0});
             this.widthUpDown.Name = "widthUpDown";
-            this.widthUpDown.Size = new System.Drawing.Size(80, 26);
+            this.widthUpDown.Size = new System.Drawing.Size(121, 26);
             this.widthUpDown.TabIndex = 1;
             this.widthUpDown.Value = new decimal(new int[] {
             24,
             0,
             0,
             0});
-            this.widthUpDown.Validating += new System.ComponentModel.CancelEventHandler(this.widthUpDown_Validating);
             // 
             // label1
             // 
@@ -99,7 +95,7 @@
             // depthUpDown
             // 
             this.depthUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depthUpDown.Location = new System.Drawing.Point(298, 142);
+            this.depthUpDown.Location = new System.Drawing.Point(417, 123);
             this.depthUpDown.Maximum = new decimal(new int[] {
             48,
             0,
@@ -111,7 +107,7 @@
             0,
             0});
             this.depthUpDown.Name = "depthUpDown";
-            this.depthUpDown.Size = new System.Drawing.Size(80, 26);
+            this.depthUpDown.Size = new System.Drawing.Size(121, 26);
             this.depthUpDown.TabIndex = 2;
             this.depthUpDown.Value = new decimal(new int[] {
             12,
@@ -136,19 +132,18 @@
             this.fullNameInput.Name = "fullNameInput";
             this.fullNameInput.Size = new System.Drawing.Size(240, 26);
             this.fullNameInput.TabIndex = 0;
-            this.fullNameInput.Text = "Enter Name Here";
             // 
             // numberOfDrawersUpDown
             // 
             this.numberOfDrawersUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfDrawersUpDown.Location = new System.Drawing.Point(296, 200);
+            this.numberOfDrawersUpDown.Location = new System.Drawing.Point(415, 201);
             this.numberOfDrawersUpDown.Maximum = new decimal(new int[] {
             7,
             0,
             0,
             0});
             this.numberOfDrawersUpDown.Name = "numberOfDrawersUpDown";
-            this.numberOfDrawersUpDown.Size = new System.Drawing.Size(82, 26);
+            this.numberOfDrawersUpDown.Size = new System.Drawing.Size(123, 26);
             this.numberOfDrawersUpDown.TabIndex = 3;
             // 
             // label4
@@ -167,7 +162,7 @@
             this.materialSelect.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.materialSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialSelect.FormattingEnabled = true;
-            this.materialSelect.Location = new System.Drawing.Point(298, 258);
+            this.materialSelect.Location = new System.Drawing.Point(417, 253);
             this.materialSelect.Name = "materialSelect";
             this.materialSelect.Size = new System.Drawing.Size(121, 28);
             this.materialSelect.TabIndex = 4;
@@ -196,9 +191,9 @@
             // 
             this.rushOrderSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rushOrderSelect.FormattingEnabled = true;
-            this.rushOrderSelect.Location = new System.Drawing.Point(298, 319);
+            this.rushOrderSelect.Location = new System.Drawing.Point(417, 319);
             this.rushOrderSelect.Name = "rushOrderSelect";
-            this.rushOrderSelect.Size = new System.Drawing.Size(139, 28);
+            this.rushOrderSelect.Size = new System.Drawing.Size(121, 28);
             this.rushOrderSelect.TabIndex = 5;
             // 
             // dateLabel
@@ -212,18 +207,17 @@
             this.dateLabel.TabIndex = 12;
             this.dateLabel.Text = "Date";
             // 
-            // getQuoteButton
+            // saveQuoteButton
             // 
-            this.getQuoteButton.AutoSize = true;
-            this.getQuoteButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.getQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.getQuoteButton.Location = new System.Drawing.Point(238, 370);
-            this.getQuoteButton.Name = "getQuoteButton";
-            this.getQuoteButton.Size = new System.Drawing.Size(264, 47);
-            this.getQuoteButton.TabIndex = 6;
-            this.getQuoteButton.Text = "Get Quote";
-            this.getQuoteButton.UseVisualStyleBackColor = true;
-            this.getQuoteButton.Click += new System.EventHandler(this.GetQuoteButton_Click);
+            this.saveQuoteButton.AutoSize = true;
+            this.saveQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveQuoteButton.Location = new System.Drawing.Point(238, 370);
+            this.saveQuoteButton.Name = "saveQuoteButton";
+            this.saveQuoteButton.Size = new System.Drawing.Size(264, 47);
+            this.saveQuoteButton.TabIndex = 6;
+            this.saveQuoteButton.Text = "Save Quote";
+            this.saveQuoteButton.UseVisualStyleBackColor = true;
+            this.saveQuoteButton.Click += new System.EventHandler(this.SaveQuoteButton_Click);
             // 
             // nameRequiredErrorMessage
             // 
@@ -235,56 +229,24 @@
             this.nameRequiredErrorMessage.TabIndex = 14;
             this.nameRequiredErrorMessage.Text = "{error message}";
             // 
-            // wLimit
+            // BackToMain
             // 
-            this.wLimit.AutoSize = true;
-            this.wLimit.ForeColor = System.Drawing.Color.Red;
-            this.wLimit.Location = new System.Drawing.Point(18, 113);
-            this.wLimit.Name = "wLimit";
-            this.wLimit.Size = new System.Drawing.Size(70, 13);
-            this.wLimit.TabIndex = 15;
-            this.wLimit.Text = "24\'-96\'in Limit";
-            // 
-            // dLimit
-            // 
-            this.dLimit.AutoSize = true;
-            this.dLimit.ForeColor = System.Drawing.Color.Red;
-            this.dLimit.Location = new System.Drawing.Point(22, 178);
-            this.dLimit.Name = "dLimit";
-            this.dLimit.Size = new System.Drawing.Size(66, 13);
-            this.dLimit.TabIndex = 16;
-            this.dLimit.Text = "12-48in Limit";
-            // 
-            // drLimit
-            // 
-            this.drLimit.AutoSize = true;
-            this.drLimit.ForeColor = System.Drawing.Color.Red;
-            this.drLimit.Location = new System.Drawing.Point(23, 227);
-            this.drLimit.Name = "drLimit";
-            this.drLimit.Size = new System.Drawing.Size(80, 13);
-            this.drLimit.TabIndex = 17;
-            this.drLimit.Text = "up to 7 drawers";
-            // 
-            // AddQuote_Form
-            // 
-            this.AddQuote_Form.Location = new System.Drawing.Point(587, 413);
-            this.AddQuote_Form.Name = "AddQuote_Form";
-            this.AddQuote_Form.Size = new System.Drawing.Size(96, 25);
-            this.AddQuote_Form.TabIndex = 18;
-            this.AddQuote_Form.Text = "Home";
-            this.AddQuote_Form.UseVisualStyleBackColor = true;
-            this.AddQuote_Form.Click += new System.EventHandler(this.AddQuote_Form_Click);
+            this.BackToMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackToMain.Location = new System.Drawing.Point(601, 397);
+            this.BackToMain.Name = "BackToMain";
+            this.BackToMain.Size = new System.Drawing.Size(105, 41);
+            this.BackToMain.TabIndex = 15;
+            this.BackToMain.Text = "MainMenu";
+            this.BackToMain.UseVisualStyleBackColor = true;
+            this.BackToMain.Click += new System.EventHandler(this.BackToMain_Click);
             // 
             // AddQuote
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(718, 450);
-            this.Controls.Add(this.AddQuote_Form);
-            this.Controls.Add(this.drLimit);
-            this.Controls.Add(this.dLimit);
-            this.Controls.Add(this.wLimit);
+            this.Controls.Add(this.BackToMain);
             this.Controls.Add(this.nameRequiredErrorMessage);
-            this.Controls.Add(this.getQuoteButton);
+            this.Controls.Add(this.saveQuoteButton);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.rushOrderSelect);
@@ -301,6 +263,7 @@
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Quote";
+        
             ((System.ComponentModel.ISupportInitialize)(this.widthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberOfDrawersUpDown)).EndInit();
@@ -324,11 +287,8 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.ComboBox rushOrderSelect;
 		private System.Windows.Forms.Label dateLabel;
-		private System.Windows.Forms.Button getQuoteButton;
+		private System.Windows.Forms.Button saveQuoteButton;
 		private System.Windows.Forms.Label nameRequiredErrorMessage;
-        private System.Windows.Forms.Label wLimit;
-        private System.Windows.Forms.Label dLimit;
-        private System.Windows.Forms.Label drLimit;
-        private System.Windows.Forms.Button AddQuote_Form;
-    }
+		private System.Windows.Forms.Button BackToMain;
+	}
 }

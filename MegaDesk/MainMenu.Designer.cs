@@ -33,7 +33,7 @@
             this.searchQuotesButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.PictureLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,29 +83,29 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MegaDesk.Properties.Resources.carpenter1;
+            this.pictureBox1.Image = global::MegaDesk.Properties.Resources.carpenter;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(466, 96);
+            this.pictureBox1.Location = new System.Drawing.Point(447, 72);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(448, 287);
+            this.pictureBox1.Size = new System.Drawing.Size(448, 301);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // PictureLabel
+            // label1
             // 
-            this.PictureLabel.AutoSize = true;
-            this.PictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PictureLabel.Location = new System.Drawing.Point(582, 445);
-            this.PictureLabel.Name = "PictureLabel";
-            this.PictureLabel.Size = new System.Drawing.Size(258, 25);
-            this.PictureLabel.TabIndex = 5;
-            this.PictureLabel.Text = "MegaDesk Assignment01";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(570, 394);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(229, 22);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "MegaDesk Assignment 1";
             // 
             // MainMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(978, 588);
-            this.Controls.Add(this.PictureLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.searchQuotesButton);
@@ -127,6 +127,6 @@
 		private System.Windows.Forms.Button searchQuotesButton;
 		private System.Windows.Forms.Button exitButton;
 		private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label PictureLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

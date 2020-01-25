@@ -1,5 +1,4 @@
-﻿using Contentful.Core.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-
 namespace MegaDesk
 {
 	public partial class DisplayQuote : Form
@@ -18,9 +15,7 @@ namespace MegaDesk
 		//public DeskQuote Quote { get; }
 
 		public DisplayQuote(DeskQuote quote)
-
 		{
-			
 			InitializeComponent();
 			//Quote = quote;
 			fullNameOutput.Text = quote.CustomerName;
@@ -28,10 +23,10 @@ namespace MegaDesk
 			depthOutput.Text = $"{quote.Desk.depth}in";
 			numberOfDrawersOutput.Text = quote.Desk.numberOfDrawers.ToString();
 			surfaceMaterialOutput.Text = quote.Desk.SurfaceMaterial.ToString();
-			rushOrderOutput.Text = (Attribute.GetCustomAttribute(quote.DayLengths.GetType().GetField(quote.DayLengths.ToString()), typeof(DescriptionAttribute)) as DescriptionAttribute)?.Description
-								   ?? quote.DayLengths.ToString();
+			rushOrderOutput.Text = (Attribute.GetCustomAttribute(quote.RushOrderType.GetType().GetField(quote.RushOrderType.ToString()), typeof(DescriptionAttribute)) as DescriptionAttribute)?.Description
+								   ?? quote.RushOrderType.ToString();
 			dateOutput.Text = quote.Date.ToShortDateString();
-			quotePriceOutput.Text = $"${quote.QuotePrice}";
+			quotePriceOutput.Text = quote.QuotePrice.ToString("C");
 		}
 	}
 }
